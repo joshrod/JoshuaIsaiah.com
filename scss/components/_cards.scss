@@ -1,0 +1,64 @@
+.card {
+	@include transitionFX(0.6s);
+	&:hover {
+		-webkit-box-shadow: 0px 15px 20px 0px $shadow;
+		        box-shadow: 0px 15px 20px 0px $shadow;
+	}
+	@include mid-device {
+		width: 45%;
+	}
+	@include sm-desktop {
+		max-width: 32rem;
+	}
+	@include md-desktop {
+		max-width: 34rem;
+	}
+
+	a {
+		@include clearfix;
+		display: block;
+		color: black;
+		text-decoration: none;
+
+		img {
+			display: block;
+		}
+
+		.portfolio-caption {
+			margin: 1.6rem 0;
+
+			h1,h3,p {
+				margin-left: 1.2rem;
+			}
+
+			h1 {
+				font-size: 2rem;
+				font-weight: 600;
+				letter-spacing: 0.2rem;
+			}
+
+			h3 {
+				margin-top: 1rem;
+				color: $gray;
+				font-size: 1rem;
+				font-weight: 400;
+				text-transform: uppercase;
+				letter-spacing: 0.2rem;
+			}
+
+			p {
+				color: $red;
+				display: none;
+				font-size: 1.2rem;
+				letter-spacing: 0.2rem;
+				@include sm-desktop {
+					display: block;
+					visibility: hidden;
+					margin-top: 9rem;
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,42 @@
+.sidebar {
+	@include transitionFX(.4s);
+	display: none;
+	@include sm-desktop {
+		width: 100vh;
+		min-width: 750px;
+		height: 4rem;
+		position: fixed;
+		left: -4rem;
+		display: block;
+		visibility: hidden;
+		transform-origin: left top;
+		transform: rotate(-90deg);
+
+		a {
+			@include transitionFX(.5s);
+			width: 25%;
+			height: 100%;
+			display: inline-block;
+			color: $gray;
+			font-size: 1.2rem;
+			text-align: center;
+			line-height: 4rem;
+			letter-spacing: 0.2rem;
+			text-decoration: none;
+			&:nth-of-type(n+2) {
+			}
+			&:hover {
+				background: $ltgray;
+			}
+		}
+	}
+}
+
+.link-active {
+	background: $ltgray;
+}
+
+.sidebar-active {
+	left: 0;
+	visibility: visible;
+}

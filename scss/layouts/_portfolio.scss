@@ -1,0 +1,29 @@
+#portfolio {
+	@include clearfix;
+	padding-top: 15rem;
+	padding-bottom: 15rem;
+	margin-left: auto;
+	margin-right: auto;
+	@include sm-tablet {
+		padding-top: 30rem;
+		padding-bottom: 0;
+	}
+
+	.card {
+		&:nth-of-type(n+2) {
+			margin-top: 8rem;
+		}
+		@include mid-device {
+			&:nth-of-type(n+2) {
+				margin-top: 9rem;
+			}
+			&:nth-of-type(2n) {
+				float: right;
+			}
+			&:nth-of-type(2n+1) {
+				float: left;
+			}
+		}
+	}
+
+}

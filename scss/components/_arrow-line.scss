@@ -1,0 +1,21 @@
+.arrow {
+	margin: 0 auto;
+	display: block;
+	width: 1rem;
+	height: 1rem;
+	border-top: 1px solid $gray;
+	border-right: 1px solid $gray;
+	border-width: 1px;
+	-moz-transform: rotate(135deg);
+	-ms-transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+.line {
+	height: 3rem;
+	border-left: 1px solid $gray;
+	&:hover {
+		height: 4rem;
+	}
+}

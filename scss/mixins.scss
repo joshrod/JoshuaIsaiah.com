@@ -1,0 +1,58 @@
+/*FIX TRANSLATE*/
+@mixin shift($transformX : -50%, $transformY: -50%) {
+	-webkit-transform: translate($transformX, $transformY);
+	    -ms-transform: translate($transformX, $transformY);
+	        transform: translate($transformX, $transformY);
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/*TRANSITION TIMES*/
+@mixin transitionFX($duration, $property: all, $curve: ease) {
+	-webkit-transition: $property $duration $curve;
+	-o-transition: $property $duration $curve;
+	transition: $property $duration $curve;
+}
+
+/*MEDIA QUERIES*/
+@mixin md-mobile {
+	@media (min-width: #{$md-mobile}) {
+		@content;
+	}
+}
+
+@mixin mid-device {
+	@media (min-width: #{$mid-device}) {
+		@content;
+	}
+}
+
+@mixin sm-tablet {
+	@media (min-width: #{$sm-tablet}) {
+		@content;
+	}
+}
+
+@mixin sm-desktop {
+	@media (min-width: #{$sm-desktop}) {
+		@content;
+	}
+}
+
+@mixin md-desktop {
+	@media (min-width: #{$md-desktop}) {
+		@content;
+	}
+}
+
+@mixin lg-desktop {
+	@media (min-width: #{$lg-desktop}) {
+		@content;
+	}
+}

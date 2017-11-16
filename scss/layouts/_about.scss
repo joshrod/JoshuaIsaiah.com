@@ -1,0 +1,52 @@
+#about {
+	@include clearfix;
+	padding-bottom: 15rem;
+	@include sm-tablet {
+		padding-top: 30rem;
+		padding-bottom: 0;
+	}
+
+	.about-text {
+		@include sm-tablet {
+			width: 45%;
+			float: right;
+		}
+		@include sm-desktop {
+			max-width: 32rem;
+		}
+		@include md-desktop {
+			max-width: 34rem;
+		}
+
+		h1 {
+			font-size: 3.6rem;
+			@include sm-desktop {
+				font-size: 4.8rem;
+			}
+		}
+
+		p {
+			margin-top: 3rem;
+			@include sm-tablet {
+				font-size: 1.6rem;
+			}
+		}
+	}
+
+	img {
+		margin-top: 5rem;
+		display: block;
+		@include sm-tablet {
+			width: 45%;
+			margin-top: 0;
+			float: left;
+		}
+		@include sm-desktop {
+			max-width: 31rem;
+		}
+		@include md-desktop {
+			max-width: 33rem;
+		}
+		
+	}
+}

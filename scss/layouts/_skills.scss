@@ -1,0 +1,38 @@
+#skills {
+	padding-bottom: 15rem;
+	@include sm-tablet {
+		padding-top: 30rem;
+		padding-bottom: 0;
+	}
+
+	h1 {
+		font-size: 3.6rem;
+		@include sm-desktop {
+			font-size: 4.8rem;
+		}
+	}
+
+	.skills-container {
+		@include sm-tablet {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			    -ms-flex-pack: justify;
+			        justify-content: space-between;
+		}
+
+		.skills-list {
+			margin-top: 5rem;
+
+			h3 {
+				font-size: 1.8rem;
+				font-weight: 800;
+			}
+
+			ul {
+				margin-top: 1.5rem;
+			}
+		}
+	}
+}
