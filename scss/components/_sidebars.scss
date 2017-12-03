@@ -1,16 +1,18 @@
-.sidebar {
+.sidebar, .cs-sidebar {
 	@include transitionFX(.4s);
 	display: none;
 	@include sm-desktop {
 		width: 100vh;
-		min-width: 750px;
-		height: 4rem;
+		height: 5rem;
 		position: fixed;
-		left: -4rem;
+		top: 100%;
+		left: -5rem;
 		display: block;
 		visibility: hidden;
-		transform-origin: left top;
-		transform: rotate(-90deg);
+		-webkit-transform-origin: left top;
+		        transform-origin: left top;
+		-webkit-transform: rotate(-90deg);
+		        transform: rotate(-90deg);
 
 		a {
 			@include transitionFX(.5s);
@@ -20,16 +22,18 @@
 			color: $gray;
 			font-size: 1.2rem;
 			text-align: center;
-			line-height: 4rem;
+			line-height: 5rem;
 			letter-spacing: 0.2rem;
 			text-decoration: none;
-			&:nth-of-type(n+2) {
-			}
 			&:hover {
 				background: $ltgray;
 			}
 		}
 	}
+}
+
+.cs-sidebar a {
+	width: 100%;
 }
 
 .link-active {

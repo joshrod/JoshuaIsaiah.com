@@ -6,16 +6,42 @@
 	border-top: 1px solid $gray;
 	border-right: 1px solid $gray;
 	border-width: 1px;
-	-moz-transform: rotate(135deg);
-	-ms-transform: rotate(135deg);
 	-webkit-transform: rotate(135deg);
 	transform: rotate(135deg);
 }
 
 .line {
+	@include transitionFX(.5s);
 	height: 3rem;
+	-webkit-animation: grow 2s;
+	        animation: grow 2s;
 	border-left: 1px solid $gray;
-	&:hover {
-		height: 4rem;
+	display: inline-block;
+	@-webkit-keyframes grow {
+		0% {height: 0;}
+		100% {height: 3rem;}
+	}
+	@keyframes grow {
+		0% {height: 0;}
+		100% {height: 3rem;}
+	}
+	@include sm-tablet {
+		height: 4.5rem;
+		@-webkit-keyframes grow {
+			0% {height: 0;}
+			100% {height: 4.5rem;}
+		}
+		@keyframes grow {
+			0% {height: 0;}
+			100% {height: 4.5rem;}
+		}
+	}
+	
+}
+
+.extend {
+	height: 4rem;
+	@include sm-tablet {
+		height: 6.5rem;
 	}
 }

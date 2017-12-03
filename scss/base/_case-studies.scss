@@ -1,0 +1,65 @@
+.cs-heading {
+	font-weight: 800;
+	font-size: 2.4rem;
+	margin-bottom: 3rem;
+}
+
+.cs-title {
+	display: none;
+	@include sm-desktop {
+		display: block;
+		font-size: 5rem;
+	}
+	@include md-desktop {
+		font-size: 6.4rem;
+	}
+	@include lg-desktop {
+		font-size: 7.2rem;
+	}
+}
+
+.mobile-title {
+	padding: 5rem 0 0;
+	font-size: 3.6rem;
+	@include sm-desktop {
+		display: none;
+	}
+}
+
+.cs-fw, {
+	margin-top: 15rem;
+	&:first-of-type {
+		margin-top: 5rem;
+	}
+	@include sm-tablet {
+		margin-top: 30rem;
+		&:first-of-type {
+			margin-top: 8rem;
+		}
+	}
+}
+
+.more-projects {
+	@include clearfix;
+	margin-top: 15rem;
+	margin-bottom: 15rem;
+	@include sm-tablet {
+		margin-top: 30rem;
+		margin-bottom: 20rem;
+	}
+
+	.card {
+		&:last-of-type {
+			margin-top: 8rem;
+		}
+		@include mid-device {
+			&:first-of-type {
+				float: left;
+			}
+			&:last-of-type {
+				margin-top: 0;
+				float: right;
+			}
+		}
+	}
+}

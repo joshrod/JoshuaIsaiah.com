@@ -1,0 +1,60 @@
+.snapchat-intro {
+	width: 100%;
+	height: 50vh;
+	background: $yellow;
+	position: relative;
+	overflow: hidden;
+	@include sm-tablet {
+		height: 70vh;
+	}
+	@include sm-desktop {
+		height: 85vh;
+	}
+
+	.cs-title {
+		@include shift(0, -50%);
+		position: absolute;
+		top: 50%;
+		left: 6vw;
+		@include md-desktop {
+			left: 8vw;
+		}
+		@include lg-desktop {
+			left: 10vw;
+		}
+	}
+
+	.snap-pics {
+		@include shift(0, -50%);
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		text-align: center;
+		@include sm-desktop {
+			width: auto;
+			display: inline-block;
+			right: 6vw;
+		}
+		@include md-desktop {
+			right: 8vw;
+		}
+		@include lg-desktop {
+			right: 10vw;
+		}
+
+		img {
+			width: 28vw;
+			max-width: 15rem;
+			margin: 0 3vw;
+			display: inline-block;
+			@include sm-tablet {
+				width: 100%;
+				max-width: 22rem;
+				margin: 0 4vw;
+			}
+			@include sm-desktop {
+				max-width: 24rem;
+			}
+		}
+	}
+}

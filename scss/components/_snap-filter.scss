@@ -1,0 +1,72 @@
+.snap-filter {
+	margin-top: 15rem;
+	text-align: center;
+	@include sm-tablet {
+		margin-top: 30rem;
+		
+	}
+	@include sm-desktop {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
+		    -ms-flex-direction: row-reverse;
+		        flex-direction: row-reverse;
+	}
+
+	img {
+		max-width: 25rem;
+		margin-bottom: 3rem;
+		@include sm-tablet {
+			max-width: 35rem;
+			margin-bottom: 5rem;
+		}
+		@include sm-desktop {
+			width: 45%;
+			max-width: 100%;
+			margin-left: 5%;
+			margin-bottom: 0;
+		}
+	}
+
+	.snap-desc {
+		@include sm-desktop {
+			width: 45%;
+			margin-right: 5%;
+		}
+
+		p {
+			text-align: left;
+		}
+
+		.snap-stats {
+			margin-top: 3rem;
+			text-align: left;
+
+
+			ul {
+				display: inline-block;
+				&:nth-of-type(2) {
+					margin-left: 7rem;
+				}
+			}
+
+			li {
+				&:not(:first-of-type) {
+					margin-top: 2rem;
+				}
+			}
+
+			.stat-titles {
+
+				li {
+					font-weight: 800;
+				}
+			}
+		}
+	}
+}
