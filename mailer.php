@@ -21,15 +21,15 @@
         $recipient = "josh@joshuaisaiah.com";
 
         // Set the email subject.
-        $subject = "New contact from $firstname." ".$lastname";
+        $subject = "New contact from $firstname $lastname";
 
         // Build the email content.
-        $email_content = "Name: $firstname." ".$lastname\n";
+        $email_content = "Name: $firstname $lastname\n";
         $email_content .= "Email: $email\n\n";
-        $email_content .= "Message:\n$firstname." ".$lastname." has reached out to you via your website. Email them back at ".$email\n";
+        $email_content .= "Message:\n$firstname $lastname has reached out to you via your website. Email them back at $email\n";
 
         // Build the email headers.
-        $email_headers = "From: $firstname." ".$lastname <$email>";
+        $email_headers = "From: $firstname $lastname <$email>";
 
         // Send the email.
         if (mail($recipient, $subject, $email_content, $email_headers)) {

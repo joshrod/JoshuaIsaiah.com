@@ -124,22 +124,23 @@ window.onload = function() {
 	});
 
 	/*** AJAX CONTACT FORM HANDLING ***/
-	form.onsubmit = function() {
-		var xhr = new XMLHttpRequest();
-		var url = "mailer.php";
-		var params = "lorem=ipsum&name=binny";
-		xhr.open("POST", url, true);
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", 'mailer.php', true);
+	xhr.setRequestHeader('accept', 'application/json');
 
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	
+	form.addEventListener('submit', function(e) {
+		e.preventDefault();
+		var data = new FormData(form);
+		xhr.send(data);
 
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				alert(xhr.responseText);
 			}
 		}
-
-		xhr.send(params);
-	}
+	});
+	
 	
 
 	
