@@ -1,0 +1,36 @@
+.cycle {
+	background: $off-black;
+
+	.cs-title {
+		color: white;
+		@include sm-desktop {
+			left: 8vw;
+		}
+		@include md-desktop {
+			left: 10vw;
+		}
+		@include lg-desktop {
+			left: 12vw;
+		}
+	}
+
+	.intro-pics {
+		@include sm-desktop {
+			right: 8vw;
+		}
+		@include md-desktop {
+			right: 10vw;
+		}
+		@include lg-desktop {
+			right: 12vw;
+		}
+
+		img {
+			width: 55vw;
+			max-width: 45rem;
+			@include sm-desktop {
+				max-width: 54rem;
+			}
+		}
+	}
+}

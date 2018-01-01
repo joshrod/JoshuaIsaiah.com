@@ -1,0 +1,19 @@
+.cs-back {
+	@include transitionFX(.3s);
+	display: inline-block;
+	opacity: 0;
+	@include sm-desktop {
+		display: none;
+	}
+
+	a {
+		color: black;
+		font-weight: 300;
+		text-decoration: none;
+	}
+}
+
+.visible {
+	@include transitionFX(.3s);
+	opacity: 1;
+}

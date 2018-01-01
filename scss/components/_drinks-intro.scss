@@ -1,0 +1,34 @@
+.drinks {
+	background: $blue;
+
+	.cs-title {
+		color: white;
+		@include sm-desktop {
+			left: 8vw;
+		}
+		@include md-desktop {
+			left: 9vw;
+		}
+		@include lg-desktop {
+			left: 11vw;
+		}
+	}
+
+	.intro-pics {
+		@include sm-desktop {
+			margin-right: 7vw;
+		}
+
+		img {
+			width: 28vw;
+			max-width: 15rem;
+			@include sm-tablet {
+				width: 100%;
+				max-width: 22rem;
+			}
+			@include sm-desktop {
+				max-width: 26rem;
+			}
+		}
+	}
+}

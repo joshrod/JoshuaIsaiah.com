@@ -18,10 +18,14 @@
 	}
 
 	.hamburger {
-		position: absolute;
+		position: fixed;
 		top: 3.3rem;
 		right: 2.5rem;
 		@include sm-tablet {
+			top: 5.7rem;
+			right: 4rem;
+		}
+		@include sm-desktop {
 			display: none;
 		}
 	}

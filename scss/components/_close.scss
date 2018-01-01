@@ -1,0 +1,25 @@
+.cross {
+	width: 2rem;
+	height: 2.2rem;
+	position: fixed;
+	top: 3rem;
+	right: 2.4rem;
+	&:before, &:after {
+	  position: absolute;
+	  left: 0.8rem;
+	  content: ' ';
+	  height: 2rem;
+	  width: 0.1rem;
+	  background-color: black;
+	}
+	&:before {
+	  transform: rotate(45deg);
+	}
+	&:after {
+	  transform: rotate(-45deg);
+	}
+	@include sm-tablet {
+		top: 5.7rem;
+		right: 4rem;
+	}
+}

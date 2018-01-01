@@ -1,0 +1,21 @@
+.elbuen {
+	background: $elbuen-orange;
+
+	.cs-title {
+		color: white;
+	}
+
+	.intro-pics {
+		padding: 0 4rem;
+		display: inline-block;
+		@include sm-desktop {
+			padding: 0;
+		}
+
+		img {
+			@include md-desktop {
+				max-width: 110rem;
+			}
+		}
+	}
+}

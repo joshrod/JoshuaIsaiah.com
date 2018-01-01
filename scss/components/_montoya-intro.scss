@@ -1,0 +1,22 @@
+.montoya {
+	background: $montoya-orange;
+
+	.cs-title {
+		width: 32vw;
+		color: white;
+	}
+
+	.intro-pics {
+		padding: 0 4rem;
+		display: inline-block;
+		@include sm-desktop {
+			padding: 0;
+		}
+
+		img {
+			@include sm-desktop {
+				width: 55vw;
+			}
+		}
+	}
+}

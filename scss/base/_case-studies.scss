@@ -1,20 +1,78 @@
+.cs-hero {
+	width: 100%;
+	height: 50vh;
+	overflow: hidden;
+	position: relative;
+	@include sm-tablet {
+		height: 70vh;
+	}
+	@include sm-desktop {
+		height: 85vh;
+	}
+}
+
+.intro-pics {
+	@include shift(0, -50%);
+	width: 100%;
+	padding: 0 4rem;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	@include sm-desktop {
+		width: auto;
+		padding: 0;
+		display: inline-block;
+		right: 6vw;
+	}
+	@include md-desktop {
+		right: 8vw;
+	}
+	@include lg-desktop {
+		right: 10vw;
+	}
+}
+
 .cs-heading {
 	font-weight: 800;
 	font-size: 2.4rem;
 	margin-bottom: 3rem;
+	@include sm-desktop {
+		font-size: 3.6rem;
+	}
 }
 
 .cs-title {
+	@include shift(0, -50%);
 	display: none;
+	position: absolute;
+	top: 50%;
+	left: 6vw;
 	@include sm-desktop {
 		display: block;
 		font-size: 5rem;
 	}
 	@include md-desktop {
+		left: 8vw;
 		font-size: 6.4rem;
 	}
 	@include lg-desktop {
+		left: 10vw;
 		font-size: 7.2rem;
+	}
+}
+
+.cs-container {
+	overflow: hidden;
+	position: relative;
+
+	.cs-back {
+		position: absolute;
+		top: 2.2rem;
+		right: 2.5rem;
+		@include sm-tablet {
+			top: 6.5rem;
+			right: 4rem;
+		}
 	}
 }
 
@@ -26,7 +84,7 @@
 	}
 }
 
-.cs-fw, {
+.cs-fw {
 	margin-top: 15rem;
 	&:first-of-type {
 		margin-top: 5rem;
@@ -36,6 +94,23 @@
 		&:first-of-type {
 			margin-top: 8rem;
 		}
+	}
+	
+	p {
+
+		a {
+			color: black;
+			&:visited {
+				color: black;
+			}
+		}
+	}
+}
+
+.cs-image {
+	margin-top: 15rem;
+	@include sm-tablet {
+		margin-top: 30rem;
 	}
 }
 
