@@ -123,6 +123,11 @@ window.onload = function() {
 		scrollIt(portfolioTop, 600, 'easeOutQuad');
 	});
 
+	/** SUBMITTING FORM CALLBACK FOR RECAPTCHA **/
+	var submitForm = function() {
+		form.submit();
+	}
+
 	/*** AJAX CONTACT FORM HANDLING ***/
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", 'mailer.php', true);

@@ -20,6 +20,15 @@
 		@include sm-desktop {
 			font-size: 1.8rem;
 		}
+
+		a {
+			@include transitionFX(.2s);
+			color: black;
+			&:hover {
+				@include transitionFX(.2s);
+				color: $red;
+			}
+		}
 	}
 
 	form {

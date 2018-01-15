@@ -378,6 +378,16 @@ img {
     @media (min-width: 1010px) {
       #contact p {
         font-size: 1.8rem; } }
+    #contact p a {
+      -webkit-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+      color: black; }
+      #contact p a:hover {
+        -webkit-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        color: #FF1744; }
   #contact form {
     margin-top: 6rem; }
   #contact .fin {
@@ -672,6 +682,7 @@ form .submit-btn {
   border-radius: 0;
   background: transparent;
   font-size: 1.4rem;
+  font-family: "Nunito Sans", "Helvetica", sans-serif;
   cursor: pointer; }
   form .submit-btn:hover {
     background: black;
