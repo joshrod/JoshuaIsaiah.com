@@ -11,6 +11,7 @@ window.onload = function() {
 	var introLine = document.getElementsByClassName('line')[0];
 	var cards = document.getElementsByClassName('card');
 	var form = document.getElementById('ajax-form');
+	var inputs = document.getElementsByClassName('input-line');
 
 
 	/*TOP OF SECTIONS TO SLIDE SIDEBAR AND SHOW ACTIVE TAB*/
@@ -123,11 +124,6 @@ window.onload = function() {
 		scrollIt(portfolioTop, 600, 'easeOutQuad');
 	});
 
-	/** SUBMITTING FORM CALLBACK FOR RECAPTCHA **/
-	var submitForm = function() {
-		form.submit();
-	}
-
 	/*** AJAX CONTACT FORM HANDLING ***/
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", 'mailer.php', true);
@@ -141,12 +137,13 @@ window.onload = function() {
 
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
+				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].value = '';
+				}
 				alert(xhr.responseText);
 			}
 		}
 	});
-	
-	
 
 	
 	/*** EXTERNAL FUNCTIONS ***/

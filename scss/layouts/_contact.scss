@@ -1,7 +1,7 @@
 #contact {
 	padding-bottom: 15rem;
 	@include sm-tablet {
-		padding-top: 30rem;
+		padding-top: 20rem;
 		padding-bottom: 20rem;
 	}
 	@include sm-desktop {
@@ -27,6 +27,10 @@
 			&:hover {
 				@include transitionFX(.2s);
 				color: $red;
+			}
+
+			&:visited {
+				color: black;
 			}
 		}
 	}
