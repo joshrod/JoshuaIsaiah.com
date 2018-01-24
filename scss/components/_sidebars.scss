@@ -1,6 +1,9 @@
 .sidebar, .cs-sidebar {
-	@include transitionFX(.4s);
 	display: none;
+	-webkit-transition: all 0.4s ease, -webkit-transform-origin 1ms, -webkit-transform 1ms;
+	transition: all 0.4s ease, -webkit-transform-origin 1ms, -webkit-transform 1ms;
+	transition: all 0.4s ease, transform-origin 1ms, transform 1ms;
+	transition: all 0.4s ease, transform-origin 1ms, transform 1ms, -webkit-transform-origin 1ms, -webkit-transform 1ms;
 	@include sm-desktop {
 		width: 100vh;
 		height: 5rem;
@@ -41,6 +44,7 @@
 }
 
 .sidebar-active {
+	@include transitionFX(.4s);
 	left: 0;
 	z-index: 4;
 	visibility: visible;

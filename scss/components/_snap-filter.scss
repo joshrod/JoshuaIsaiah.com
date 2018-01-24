@@ -6,6 +6,7 @@
 		
 	}
 	@include sm-desktop {
+		padding: 0 10rem 0 10rem;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -16,6 +17,12 @@
 		-webkit-box-direction: reverse;
 		    -ms-flex-direction: row-reverse;
 		        flex-direction: row-reverse;
+	}
+	@include md-desktop {
+		padding: 0 12.5rem 0 12.5rem;
+	}
+	@include lg-desktop {
+		padding: 0 15rem 0 15rem;
 	}
 
 	img {

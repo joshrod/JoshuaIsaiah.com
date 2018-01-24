@@ -66,6 +66,36 @@
 		h3 {
 			margin: 3rem 0;
 		}
+
+		.shrink-text {
+			overflow: hidden;
+			-webkit-animation: typing 1.7s steps(40, end);
+			        animation: typing 1.7s steps(40, end);
+			@include sm-tablet {
+
+			}
+		}
+
+		.fade-intro {
+			opacity: 0;
+			-webkit-animation: fade-in 1.7s;
+			        animation: fade-in 1.7s;
+			-webkit-animation-delay: 1.7s;
+			        animation-delay: 1.7s;
+			-webkit-animation-fill-mode: forwards;
+			        animation-fill-mode: forwards;
+		}
+
+		.delay-typing {
+			overflow: hidden;
+			width: 0;
+			-webkit-animation: typing 1.7s steps(40, end);
+			        animation: typing 1.7s steps(40, end);
+			-webkit-animation-delay: 3.4s;
+			        animation-delay: 3.4s;
+			-webkit-animation-fill-mode: forwards;
+			        animation-fill-mode: forwards;
+		}
 	}
 
 	.intro-link {
@@ -90,5 +120,43 @@
 		position: absolute;
 		left: 50%;
 		bottom: 0;
+	}
+}
+
+@-webkit-keyframes typing {
+	from {
+		width: 0;
+
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes typing {
+	from {
+		width: 0;
+
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@-webkit-keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }

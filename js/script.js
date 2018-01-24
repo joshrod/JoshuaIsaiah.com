@@ -12,6 +12,7 @@ window.onload = function() {
 	var cards = document.getElementsByClassName('card');
 	var form = document.getElementById('ajax-form');
 	var inputs = document.getElementsByClassName('input-line');
+	var overlay = document.getElementsByClassName('index-overlay')[0];
 
 
 	/*TOP OF SECTIONS TO SLIDE SIDEBAR AND SHOW ACTIVE TAB*/
@@ -47,6 +48,74 @@ window.onload = function() {
 			var caption = this.children[0].children[1].children[2];
 			caption.classList.remove('hovered');
 		});
+
+		/*ADD A CLICK EVENT LISTENER TO EACH CARD, 
+		THEN MAKE THE OVERLAY CHANGE COLOR AND ANIMATE BEFORE GOING TO PAGE*/
+		
+		switch(i) {
+			case 0:
+				cards[0].onclick = function(e) {
+					e.preventDefault(); 
+					overlay.style.backgroundColor = '#EC8A32'; 
+					overlay.classList.add('overlay-open'); 
+					window.setTimeout(function() {
+						window.location.href = '/elbuen.html';	
+					}, 500);
+				};
+				break;
+			case 1:
+				cards[1].onclick = function(e) {
+					e.preventDefault(); 
+					overlay.style.backgroundColor = '#F5AF2D'; 
+					overlay.classList.add('overlay-open');
+					window.setTimeout(function() {
+						window.location.href = '/electric.html';	
+					}, 500);
+				};
+				break;
+			case 2:
+				cards[2].onclick = function(e) {
+					e.preventDefault(); 
+					overlay.style.backgroundColor = '#424242'; 
+					overlay.classList.add('overlay-open');
+					window.setTimeout(function() {
+						window.location.href = '/cycle.html';	
+					}, 500);
+				};
+				break;
+			case 3:
+				cards[3].onclick = function(e) {
+					e.preventDefault(); 
+					overlay.style.backgroundColor = '#FFFF00'; 
+					overlay.classList.add('overlay-open');
+					window.setTimeout(function() {
+						window.location.href = '/snapchat.html';	
+					}, 500);
+				};
+				break;
+			case 4:
+				cards[4].onclick = function(e) {
+					e.preventDefault(); 
+					overlay.style.backgroundColor = '#003777'; 
+					overlay.classList.add('overlay-open');
+					window.setTimeout(function() {
+						window.location.href = '/madisondrinks.html';	
+					}, 500);
+				};
+				break;
+			case 5:
+				cards[5].onclick = function(e) {
+					e.preventDefault(); 
+					overlay.style.backgroundColor = '#78431B'; 
+					overlay.classList.add('overlay-open');
+					window.setTimeout(function() {
+						window.location.href = '/lambdas.html';	
+					}, 500);
+				};
+				break;
+			default:
+				break;
+		}
 	}
 
 	/*** EVENT HANDLING ***/
@@ -100,19 +169,19 @@ window.onload = function() {
 		switch (i) {
 			case 0:
 				mobileLinks[0].onclick = function() { scrollIt(portfolioTop, 600, 'easeOutQuad'); };
-				sidebarLinks[0].onclick = function() { scrollIt(contactTop, 600, 'easeOutQuad'); };
+				sidebarLinks[0].onclick = function() { scrollIt(contactTop+150, 600, 'easeOutQuad'); };
 				break;
 			case 1:
 				mobileLinks[1].onclick = function() { scrollIt(aboutTop, 600, 'easeOutQuad'); };
-				sidebarLinks[1].onclick = function() { scrollIt(skillsTop, 600, 'easeOutQuad'); };
+				sidebarLinks[1].onclick = function() { scrollIt(skillsTop+125, 600, 'easeOutQuad'); };
 				break;
 			case 2:
 				mobileLinks[2].onclick = function() { scrollIt(skillsTop, 600, 'easeOutQuad'); };
-				sidebarLinks[2].onclick = function() { scrollIt(aboutTop, 600, 'easeOutQuad'); };
+				sidebarLinks[2].onclick = function() { scrollIt(aboutTop+150, 600, 'easeOutQuad'); };
 				break;
 			case 3:
 				mobileLinks[3].onclick = function() { scrollIt(contactTop, 600, 'easeOutQuad'); };
-				sidebarLinks[3].onclick = function() { scrollIt(portfolioTop, 600, 'easeOutQuad'); };
+				sidebarLinks[3].onclick = function() { scrollIt(portfolioTop+100, 600, 'easeOutQuad'); };
 				break;
 			default:
 				break;
@@ -121,7 +190,7 @@ window.onload = function() {
 
 	/* INTRO LINK SMOOTHSCROLL */
 	introLink.addEventListener('click', function() {
-		scrollIt(portfolioTop, 600, 'easeOutQuad');
+		scrollIt(portfolioTop+100, 600, 'easeOutQuad');
 	});
 
 	/*** AJAX CONTACT FORM HANDLING ***/
