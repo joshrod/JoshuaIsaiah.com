@@ -13,6 +13,7 @@ window.onload = function() {
 	var form = document.getElementById('ajax-form');
 	var inputs = document.getElementsByClassName('input-line');
 	var overlay = document.getElementsByClassName('index-overlay')[0];
+	var honeypot = document.getElementById('phone');
 
 
 	/*TOP OF SECTIONS TO SLIDE SIDEBAR AND SHOW ACTIVE TAB*/
@@ -192,6 +193,9 @@ window.onload = function() {
 	introLink.addEventListener('click', function() {
 		scrollIt(portfolioTop+100, 600, 'easeOutQuad');
 	});
+
+	/* HIDE THE HONEYPOT THROUGH JS*/
+	honeypot.style.display = 'none';
 
 	/*** AJAX CONTACT FORM HANDLING ***/
 	var xhr = new XMLHttpRequest();
