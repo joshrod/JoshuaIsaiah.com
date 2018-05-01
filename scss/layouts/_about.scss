@@ -19,23 +19,39 @@
 		}
 
 		h1 {
+			@include transitionFX(0.3s);
 			font-size: 3.6rem;
+			opacity: 0;
+			transform: translateY(10px);
 			@include sm-desktop {
 				font-size: 4.8rem;
 			}
 		}
 
+		.slide-text {
+			transform: translateY(-10px);
+			opacity: 1;
+		}
+
 		p {
+			@include transitionFX(0.3s);
 			margin-top: 3rem;
+			opacity: 0;
 			@include sm-tablet {
 				font-size: 1.6rem;
 			}
 		}
+
+		.fade-text {
+			opacity: 1;
+		}
 	}
 
 	img {
+		@include transitionFX(0.3s);
 		margin-top: 5rem;
 		display: block;
+		opacity: 0;
 		@include sm-tablet {
 			width: 45%;
 			margin-top: 0;
@@ -48,5 +64,9 @@
 			max-width: 33rem;
 		}
 		
+	}
+
+	.fade-img {
+		opacity: 1;
 	}
 }

@@ -1,26 +1,35 @@
+/*VARIABLES*/
+var sidebar = document.getElementsByClassName('sidebar')[0];
+var sidebarLinks = sidebar.children;
+var hamburger = document.getElementsByClassName('hamburger')[0];
+var mobileNav = document.getElementsByClassName('mobile-nav')[0];
+var mobileList = document.getElementsByClassName('mobile-list')[0];
+var mobileLinks = document.getElementsByClassName('m-link');
+var cross = document.getElementsByClassName('cross')[0];
+var introText = document.getElementsByClassName('intro-text')[0];
+var introLink = document.getElementsByClassName('intro-link')[0];
+var introLine = document.getElementsByClassName('line')[0];
+var cards = document.getElementsByClassName('card');
+var beReal = document.getElementsByClassName('about-text')[0].children[0];
+var aboutText = document.getElementsByClassName('about-text')[0].children[1];
+var aboutPic = document.getElementById('about').children[1];
+var skillsHeader = document.getElementById('skills').children[0];
+var skillsList = document.getElementsByClassName('skills-list');
+var contactHeader = document.getElementById('contact').children[0];
+var form = document.getElementById('ajax-form');
+var inputs = document.getElementsByClassName('input-line');
+var overlay = document.getElementsByClassName('index-overlay')[0];
+var honeypot = document.getElementById('phone');
+
+
+
+/*TOP OF SECTIONS TO SLIDE SIDEBAR AND SHOW ACTIVE TAB*/
+var portfolioTop = document.getElementById('portfolio').getBoundingClientRect().top + window.pageYOffset;
+var aboutTop = document.getElementById('about').getBoundingClientRect().top + window.pageYOffset;
+var skillsTop = document.getElementById('skills').getBoundingClientRect().top + window.pageYOffset;
+var contactTop = document.getElementById('contact').getBoundingClientRect().top + window.pageYOffset;
+
 window.onload = function() {
-	/*VARIABLES*/
-	var sidebar = document.getElementsByClassName('sidebar')[0];
-	var sidebarLinks = sidebar.children;
-	var hamburger = document.getElementsByClassName('hamburger')[0];
-	var mobileNav = document.getElementsByClassName('mobile-nav')[0];
-	var mobileList = document.getElementsByClassName('mobile-list')[0];
-	var mobileLinks = document.getElementsByClassName('m-link');
-	var cross = document.getElementsByClassName('cross')[0];
-	var introLink = document.getElementsByClassName('intro-link')[0];
-	var introLine = document.getElementsByClassName('line')[0];
-	var cards = document.getElementsByClassName('card');
-	var form = document.getElementById('ajax-form');
-	var inputs = document.getElementsByClassName('input-line');
-	var overlay = document.getElementsByClassName('index-overlay')[0];
-	var honeypot = document.getElementById('phone');
-
-
-	/*TOP OF SECTIONS TO SLIDE SIDEBAR AND SHOW ACTIVE TAB*/
-	var portfolioTop = document.getElementById('portfolio').getBoundingClientRect().top + window.pageYOffset;
-	var aboutTop = document.getElementById('about').getBoundingClientRect().top + window.pageYOffset;
-	var skillsTop = document.getElementById('skills').getBoundingClientRect().top + window.pageYOffset;
-	var contactTop = document.getElementById('contact').getBoundingClientRect().top + window.pageYOffset;
 	
 	/*DISPLAY SIDEBAR IF TOP OF WINDOW IS PAST TOP OF PORTFOLIO DIV*/
 	if (window.pageYOffset >= portfolioTop) {
@@ -30,6 +39,28 @@ window.onload = function() {
 	}
 
 	activeTabs();
+
+	/* MAKE CARDS FADEIN IF THEY ARE VISIBLE IN WINDOW */
+	for (var i = 0; i < cards.length; i++) {
+		var card = cards[i];
+		fadeCard(card);
+	}
+
+	aboutEffects();
+
+	skillsEffects();
+
+	for (var i = 0; i < skillsList.length; i++) {
+		var list = skillsList[i];
+		listSlide(list);
+	}
+
+	contactEffects();
+
+	for (var i = 0; i < inputs.length; i++) {
+		var line = inputs[i];
+		drawOut(line);
+	}
 
 	/*EXTENDS LINE ON LOAD AND WHEN HOVERING OVER LINK IN THE INTRO*/
 	introLink.addEventListener('mouseover', function() {
@@ -97,6 +128,16 @@ window.onload = function() {
 			case 4:
 				cards[4].onclick = function(e) {
 					e.preventDefault(); 
+					overlay.style.backgroundColor = '#51A4DB'; 
+					overlay.classList.add('overlay-open');
+					window.setTimeout(function() {
+						window.location.href = '/ordinary.html';	
+					}, 500);
+				};
+				break;
+			case 5:
+				cards[5].onclick = function(e) {
+					e.preventDefault(); 
 					overlay.style.backgroundColor = '#003777'; 
 					overlay.classList.add('overlay-open');
 					window.setTimeout(function() {
@@ -104,8 +145,8 @@ window.onload = function() {
 					}, 500);
 				};
 				break;
-			case 5:
-				cards[5].onclick = function(e) {
+			case 6:
+				cards[6].onclick = function(e) {
 					e.preventDefault(); 
 					overlay.style.backgroundColor = '#78431B'; 
 					overlay.classList.add('overlay-open');
@@ -131,7 +172,30 @@ window.onload = function() {
 		}
 
 		activeTabs();
+
+		/* FADE IN CARD AFTER BOTTOM OF WINDOW PASSES THE CARD'S TOP THIRD */
+		for (var i = 0; i < cards.length; i++) {
+			var card = cards[i];
+			fadeCard(card);
+		}
+
+		aboutEffects();
+
+		skillsEffects();
+
+		for (var i = 0; i < skillsList.length; i++) {
+			var list = skillsList[i];
+			listSlide(list);
+		}
+
+		contactEffects();
+
+		for (var i = 0; i < inputs.length; i++) {
+			var line = inputs[i];
+			drawOut(line);
+		}
 	}
+
 
 	/* DISPLAY MOBILE NAVIGATION WHEN CLICKING HAMBURGER */
 	hamburger.addEventListener('click', function() {
@@ -217,37 +281,131 @@ window.onload = function() {
 			}
 		}
 	});
+}
 
-	
-	/*** EXTERNAL FUNCTIONS ***/
+/*** EXTERNAL FUNCTIONS ***/
 
-	/*ONCE USER WINDOW REACHES DIV, SIDEBAR CHANGES ACTIVE TAB TO WHICHEVER TAB USER IS CURRENTLY ON*/
-	function activeTabs() {
-		var removeActive = function() {
-			for (var i = 0; i < sidebarLinks.length; i++) {
-				sidebarLinks[i].classList.remove('link-active');
-			}	
-		}
+/*ONCE USER WINDOW REACHES DIV, SIDEBAR CHANGES ACTIVE TAB TO WHICHEVER TAB USER IS CURRENTLY ON*/
+function activeTabs() {
+	var removeActive = function() {
+		for (var i = 0; i < sidebarLinks.length; i++) {
+			sidebarLinks[i].classList.remove('link-active');
+		}	
+	}
 
-		switch (true) {
-			case (window.pageYOffset >= portfolioTop && window.pageYOffset < aboutTop):
-				removeActive();
-				sidebarLinks[3].classList.add('link-active');
-				break;
-			case (window.pageYOffset >= aboutTop && window.pageYOffset < skillsTop):
-				removeActive();
-				sidebarLinks[2].classList.add('link-active');
-				break;
-			case (window.pageYOffset >= skillsTop && window.pageYOffset < contactTop):
-				removeActive();
-				sidebarLinks[1].classList.add('link-active');
-				break;
-			case (window.pageYOffset >= contactTop):
-				removeActive();
-				sidebarLinks[0].classList.add('link-active');
-				break;
-			default:
-				break;
-		}
+	switch (true) {
+		case (window.pageYOffset >= portfolioTop && window.pageYOffset < aboutTop):
+			removeActive();
+			sidebarLinks[3].classList.add('link-active');
+			break;
+		case (window.pageYOffset >= aboutTop && window.pageYOffset < skillsTop):
+			removeActive();
+			sidebarLinks[2].classList.add('link-active');
+			break;
+		case (window.pageYOffset >= skillsTop && window.pageYOffset < contactTop):
+			removeActive();
+			sidebarLinks[1].classList.add('link-active');
+			break;
+		case (window.pageYOffset >= contactTop):
+			removeActive();
+			sidebarLinks[0].classList.add('link-active');
+			break;
+		default:
+			break;
+	}
+}
+
+/*GET THE FIRST THIRD AND BOTTOM OF CARD, THEN ADD FADE IN CLASS */
+function fadeCard(card) {
+	var third = card.getBoundingClientRect().top + window.pageYOffset + (card.clientHeight / 3);
+	var bottom = card.getBoundingClientRect().bottom + window.pageYOffset;
+
+	if (window.pageYOffset + window.innerHeight >= third && window.pageYOffset < bottom - (card.clientHeight / 3)) {
+		card.classList.add('card-fade');
+	}
+	else {
+		card.classList.remove('card-fade');
+	}
+}
+
+function fadeIn(el) {
+	if (el.style.opacity = 0) {
+		return;
+	}
+	else {
+		el.style.opacity = 0;
+
+		var last = +new Date();
+		var tick = function() {
+			el.style.opacity = +el.style.opacity + (new Date() - last) / 400;
+			last = +new Date();
+
+			if (+el.style.opacity < 1) {
+			  (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+			}
+		};
+		tick();
+	}
+}
+
+function aboutEffects() {
+	/* SLIDE UP TEXT WHEN BOTTOM OF SCREEN REACHES BOTTOM OF 'LETS BE REAL' */
+	if (window.pageYOffset + (window.innerHeight / 1.5) >= beReal.getBoundingClientRect().top + window.pageYOffset) {
+		beReal.classList.add('slide-text');
+	}
+	else {
+		beReal.classList.remove('slide-text');
+	}
+
+	/* FADE IN ABOUT TEXT AFTER BOTTOM OF WINDOW REACHES HALF THE TEXT HEIGHT */
+	if (window.pageYOffset + (window.innerHeight / 1.5) >= aboutText.getBoundingClientRect().top + window.pageYOffset) {
+		aboutText.classList.add('fade-text');
+	}
+	else {
+		aboutText.classList.remove('fade-text');
+	}
+
+	/* FADE IN ABOUT TEXT AFTER BOTTOM OF WINDOW REACHES HALF THE TEXT HEIGHT */
+	if (window.pageYOffset + (window.innerHeight / 1.5) >= aboutPic.getBoundingClientRect().top + window.pageYOffset ) {
+		aboutPic.classList.add('fade-img');
+	}
+	else {
+		aboutPic.classList.remove('fade-img');
+	}
+}
+
+function skillsEffects() {
+	if (window.pageYOffset + (window.innerHeight / 1.5) >= skillsHeader.getBoundingClientRect().top + window.pageYOffset) {
+		skillsHeader.classList.add('skills-slide');
+	}
+	else {
+		skillsHeader.classList.remove('skills-slide');
+	}
+}
+
+function listSlide(list) {
+	if (window.pageYOffset + (window.innerHeight / 1.5) >= list.getBoundingClientRect().top + window.pageYOffset) {
+		list.classList.add('slide-from-left');
+	}
+	else {
+		list.classList.remove('slide-from-left');
+	}
+}
+
+function contactEffects() {
+	if (window.pageYOffset + (window.innerHeight / 1.5) >= contactHeader.getBoundingClientRect().top + window.pageYOffset) {
+		contactHeader.classList.add('contact-slide');
+	}
+	else {
+		contactHeader.classList.remove('contact-slide');
+	}
+}
+
+function drawOut(line) {
+	if (window.pageYOffset + (window.innerHeight / 1.5) >= contactHeader.getBoundingClientRect().top + window.pageYOffset) {
+		line.classList.add('draw-out');
+	}
+	else {
+		line.classList.remove('draw-out');
 	}
 }

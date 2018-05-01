@@ -3,40 +3,24 @@
 	display: block;
 	width: 1rem;
 	height: 1rem;
-	border-top: 1px solid $gray;
-	border-right: 1px solid $gray;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
 	border-width: 1px;
 	-webkit-transform: rotate(135deg);
 	transform: rotate(135deg);
+	@include sm-tablet {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
 }
 
 .line {
 	@include transitionFX(.5s);
-	height: 3rem;
+	height: 0;
 	-webkit-animation: grow 2s;
 	        animation: grow 2s;
-	border-left: 1px solid $gray;
+	border-left: 1px solid black;
 	display: inline-block;
-	@-webkit-keyframes grow {
-		0% {height: 0;}
-		100% {height: 3rem;}
-	}
-	@keyframes grow {
-		0% {height: 0;}
-		100% {height: 3rem;}
-	}
-	@include sm-tablet {
-		height: 4.5rem;
-		@-webkit-keyframes grow {
-			0% {height: 0;}
-			100% {height: 4.5rem;}
-		}
-		@keyframes grow {
-			0% {height: 0;}
-			100% {height: 4.5rem;}
-		}
-	}
-	
 }
 
 .extend {

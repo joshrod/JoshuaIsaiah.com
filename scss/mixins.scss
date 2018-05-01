@@ -34,7 +34,7 @@
 }
 
 @mixin sm-tablet {
-	@media (min-width: #{$sm-tablet}) {
+	@media (min-width: #{$sm-tablet}){
 		@content;
 	}
 }
@@ -53,6 +53,12 @@
 
 @mixin lg-desktop {
 	@media (min-width: #{$lg-desktop}) {
+		@content;
+	}
+}
+
+@mixin mobile-landscape {
+	@media (max-width: #{$sm-desktop}) and (orientation: landscape) {
 		@content;
 	}
 }

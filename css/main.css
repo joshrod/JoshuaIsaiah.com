@@ -190,6 +190,15 @@ img {
     .cs-image {
       margin-top: 30rem; } }
 
+.cs-vid {
+  width: 100%;
+  margin-top: 15rem; }
+  @media (min-width: 720px) {
+    .cs-vid {
+      margin-top: 30rem; } }
+  .cs-vid video {
+    width: 100%; }
+
 .more-projects {
   margin-top: 15rem;
   margin-bottom: 15rem; }
@@ -246,24 +255,26 @@ img {
     @media (min-width: 1010px) {
       .intro .hamburger {
         display: none; } }
-  .intro h3, .intro a {
+  .intro a {
     color: #A0A0A0;
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: .2rem; }
     @media (min-width: 720px) {
-      .intro h3, .intro a {
+      .intro a {
         font-size: 1.4rem; } }
   .intro h1 {
-    text-transform: uppercase;
-    font-size: 5vw; }
+    font-size: 10vw; }
+    @media (min-width: 720px) {
+      .intro h1 {
+        font-size: 9vw; } }
     @media (min-width: 1010px) {
       .intro h1 {
-        font-size: 4.8rem; } }
-    @media (min-width: 1240px) {
+        font-size: 7rem; } }
+    @media (max-width: 1010px) and (orientation: landscape) {
       .intro h1 {
-        font-size: 5.4rem; } }
+        font-size: 6vw; } }
   .intro .intro-text {
     -webkit-transform: translate(0, -45%);
     -ms-transform: translate(0, -45%);
@@ -273,32 +284,23 @@ img {
     white-space: nowrap; }
     @media (min-width: 1010px) {
       .intro .intro-text {
-        -webkit-transform: translate(-50%, -40%);
-        -ms-transform: translate(-50%, -40%);
-        transform: translate(-50%, -40%);
-        top: 40%;
-        left: 50%; } }
-    .intro .intro-text h3 {
-      margin: 3rem 0; }
-    .intro .intro-text .shrink-text {
-      overflow: hidden;
-      -webkit-animation: typing 1.4s steps(40, end);
-      animation: typing 1.4s steps(40, end); }
+        -webkit-transform: translate(-35%, -45%);
+        -ms-transform: translate(-35%, -45%);
+        transform: translate(-35%, -45%);
+        top: 45%;
+        left: 35%; } }
+    @media (max-width: 1010px) and (orientation: landscape) {
+      .intro .intro-text h1 #line-break {
+        display: none; } }
+    @media (min-width: 1010px) {
+      .intro .intro-text h1 #line-break {
+        display: none; } }
     .intro .intro-text .fade-intro {
       opacity: 0;
-      -webkit-animation: fade-in 1.4s;
-      animation: fade-in 1.4s;
-      -webkit-animation-delay: 1.4s;
-      animation-delay: 1.4s;
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards; }
-    .intro .intro-text .delay-typing {
-      overflow: hidden;
-      width: 0;
-      -webkit-animation: typing 1.4s steps(40, end);
-      animation: typing 1.4s steps(40, end);
-      -webkit-animation-delay: 2.8s;
-      animation-delay: 2.8s;
+      -webkit-animation: fade-in 0.7s;
+      animation: fade-in 0.7s;
+      -webkit-animation-delay: 0.3s;
+      animation-delay: 0.3s;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards; }
   .intro .intro-link {
@@ -307,30 +309,22 @@ img {
     transform: translate(-50%, 0);
     position: absolute;
     left: 50%;
-    bottom: 5rem; }
+    bottom: 5rem;
+    cursor: pointer; }
     @media (min-width: 720px) {
       .intro .intro-link {
         bottom: 8rem; } }
     .intro .intro-link a {
-      text-decoration: none; }
+      text-decoration: none;
+      line-height: 1.8;
+      visibility: hidden; }
     .intro .intro-link .arrow {
-      margin-top: 0.2rem; }
+      margin-top: 0.2rem;
+      cursor: pointer; }
   .intro .line {
     position: absolute;
     left: 50%;
     bottom: 0; }
-
-@-webkit-keyframes typing {
-  from {
-    width: 0; }
-  to {
-    width: 100%; } }
-
-@keyframes typing {
-  from {
-    width: 0; }
-  to {
-    width: 100%; } }
 
 @-webkit-keyframes fade-in {
   from {
@@ -357,15 +351,19 @@ img {
     #portfolio {
       padding-top: 30rem;
       padding-bottom: 0rem; } }
-  #portfolio .card:nth-of-type(n+2) {
-    margin-top: 8rem; }
-  @media (min-width: 600px) {
+  #portfolio .card {
+    opacity: 0; }
     #portfolio .card:nth-of-type(n+2) {
-      margin-top: 9rem; }
-    #portfolio .card:nth-of-type(2n) {
-      float: right; }
-    #portfolio .card:nth-of-type(2n+1) {
-      float: left; } }
+      margin-top: 8rem; }
+    @media (min-width: 600px) {
+      #portfolio .card:nth-of-type(n+2) {
+        margin-top: 9rem; }
+      #portfolio .card:nth-of-type(2n) {
+        float: right; }
+      #portfolio .card:nth-of-type(2n+1) {
+        float: left; } }
+  #portfolio .card-fade {
+    opacity: 1; }
 
 #about {
   padding-bottom: 15rem; }
@@ -388,18 +386,36 @@ img {
     #about .about-text {
       max-width: 34rem; } }
   #about .about-text h1 {
-    font-size: 3.6rem; }
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 3.6rem;
+    opacity: 0;
+    transform: translateY(10px); }
     @media (min-width: 1010px) {
       #about .about-text h1 {
         font-size: 4.8rem; } }
+  #about .about-text .slide-text {
+    transform: translateY(-10px);
+    opacity: 1; }
   #about .about-text p {
-    margin-top: 3rem; }
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 3rem;
+    opacity: 0; }
     @media (min-width: 720px) {
       #about .about-text p {
         font-size: 1.6rem; } }
+  #about .about-text .fade-text {
+    opacity: 1; }
   #about img {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     margin-top: 5rem;
-    display: block; }
+    display: block;
+    opacity: 0; }
     @media (min-width: 720px) {
       #about img {
         width: 45%;
@@ -411,6 +427,8 @@ img {
     @media (min-width: 1240px) {
       #about img {
         max-width: 33rem; } }
+  #about .fade-img {
+    opacity: 1; }
 
 #skills {
   padding-bottom: 15rem; }
@@ -419,10 +437,18 @@ img {
       padding-top: 30rem;
       padding-bottom: 0rem; } }
   #skills h1 {
-    font-size: 3.6rem; }
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 3.6rem;
+    opacity: 0;
+    transform: translateY(10px); }
     @media (min-width: 1010px) {
       #skills h1 {
         font-size: 4.8rem; } }
+  #skills .skills-slide {
+    opacity: 1;
+    transform: translateY(-10px); }
   @media (min-width: 720px) {
     #skills .skills-container {
       display: -webkit-box;
@@ -432,12 +458,20 @@ img {
       -ms-flex-pack: justify;
       justify-content: space-between; } }
   #skills .skills-container .skills-list {
-    margin-top: 5rem; }
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 5rem;
+    opacity: 0;
+    transform: translateX(-10px); }
     #skills .skills-container .skills-list h3 {
       font-size: 1.8rem;
       font-weight: 800; }
     #skills .skills-container .skills-list ul {
       margin-top: 1.5rem; }
+  #skills .skills-container .slide-from-left {
+    opacity: 1;
+    transform: translateX(10px); }
 
 #contact {
   padding-bottom: 15rem; }
@@ -449,10 +483,18 @@ img {
     #contact {
       padding-bottom: 15rem; } }
   #contact h1 {
-    font-size: 3.6rem; }
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 3.6rem;
+    opacity: 0;
+    transform: translateY(10px); }
     @media (min-width: 1010px) {
       #contact h1 {
         font-size: 4.8rem; } }
+  #contact .contact-slide {
+    opacity: 1;
+    transform: translateY(-10px); }
   #contact p {
     margin-top: 1.5rem; }
     @media (min-width: 1010px) {
@@ -529,7 +571,7 @@ img {
   width: 100%;
   height: 100%;
   opacity: 0;
-  background: white;
+  background: #FF1744;
   z-index: 4; }
   .mobile-nav .mobile-links {
     width: 100%;
@@ -546,15 +588,15 @@ img {
       .mobile-nav .mobile-links .mobile-list li:not(:first-of-type) {
         margin-top: 4rem; }
       .mobile-nav .mobile-links .mobile-list li .m-link {
-        font-size: 3rem;
+        font-size: 10vw;
         font-weight: 800;
-        color: black;
+        color: white;
         text-decoration: none;
         text-transform: none;
         letter-spacing: 0; }
         @media (min-width: 720px) {
           .mobile-nav .mobile-links .mobile-list li .m-link {
-            font-size: 3.8rem; } }
+            font-size: 8vw; } }
     .mobile-nav .mobile-links .list-slide {
       -webkit-transition: all 0.5s ease;
       -o-transition: all 0.5s ease;
@@ -573,46 +615,25 @@ img {
   display: block;
   width: 1rem;
   height: 1rem;
-  border-top: 1px solid #A0A0A0;
-  border-right: 1px solid #A0A0A0;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
   border-width: 1px;
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg); }
+  @media (min-width: 720px) {
+    .arrow {
+      width: 1.5rem;
+      height: 1.5rem; } }
 
 .line {
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  height: 3rem;
+  height: 0;
   -webkit-animation: grow 2s;
   animation: grow 2s;
-  border-left: 1px solid #A0A0A0;
+  border-left: 1px solid black;
   display: inline-block; }
-
-@-webkit-keyframes grow {
-  0% {
-    height: 0; }
-  100% {
-    height: 3rem; } }
-
-@keyframes grow {
-  0% {
-    height: 0; }
-  100% {
-    height: 3rem; } }
-  @media (min-width: 720px) {
-    .line {
-      height: 4.5rem; }
-    @-webkit-keyframes grow {
-      0% {
-        height: 0; }
-      100% {
-        height: 4.5rem; } }
-    @keyframes grow {
-      0% {
-        height: 0; }
-      100% {
-        height: 4.5rem; } } }
 
 .extend {
   height: 4rem; }
@@ -703,6 +724,12 @@ img {
         font-size: 2rem;
         font-weight: 600;
         letter-spacing: 0.2rem; }
+        @media (min-width: 720px) {
+          .card a .portfolio-caption h1 {
+            font-size: 2.2rem; } }
+        @media (min-width: 1010px) {
+          .card a .portfolio-caption h1 {
+            font-size: 2rem; } }
       .card a .portfolio-caption h3 {
         margin-top: 1rem;
         color: #A0A0A0;
@@ -710,10 +737,16 @@ img {
         font-weight: 400;
         text-transform: uppercase;
         letter-spacing: 0.2rem; }
+        @media (min-width: 720px) {
+          .card a .portfolio-caption h3 {
+            font-size: 1.2rem; } }
+        @media (min-width: 1010px) {
+          .card a .portfolio-caption h3 {
+            font-size: 1rem; } }
       .card a .portfolio-caption p {
         @transitionFX (.6s);
-        color: #FF1744;
-        display: none;
+        margin-top: 1rem;
+        color: #A0A0A0;
         font-size: 1.2rem;
         letter-spacing: 0.2rem; }
         @media (min-width: 1010px) {
@@ -721,6 +754,7 @@ img {
             display: block;
             visibility: hidden;
             opacity: 0;
+            color: #FF1744;
             margin-top: 9rem;
             margin-bottom: 1rem; } }
       .card a .portfolio-caption .hovered {
@@ -742,7 +776,9 @@ form .input-line {
   outline: 0;
   background: transparent;
   font-size: 1.6rem;
-  border-bottom: 1px solid black; }
+  border-bottom: 1px solid black;
+  transform: scaleX(0);
+  transform-origin: 0 50%; }
   form .input-line:nth-of-type(2) {
     margin: 3rem 0; }
   @media (min-width: 1010px) {
@@ -756,6 +792,12 @@ form .input-line {
         float: right; }
       form .input-line:nth-of-type(3) {
         margin-top: 4rem; } }
+
+form .draw-out {
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  transform: scaleX(1); }
 
 form .submit-btn {
   -webkit-transition: all 0.2s ease;
@@ -790,7 +832,7 @@ form .submit-btn {
     content: ' ';
     height: 2rem;
     width: 0.1rem;
-    background-color: black; }
+    background-color: white; }
   .cross:before {
     transform: rotate(45deg); }
   .cross:after {
@@ -1012,3 +1054,23 @@ form .submit-btn {
     @media (min-width: 1010px) {
       .cycle .intro-pics img {
         max-width: 54rem; } }
+
+.freaks {
+  background: #51A4DB; }
+  .freaks .cs-title {
+    color: white; }
+    @media (min-width: 1240px) {
+      .freaks .cs-title {
+        left: 6vw; } }
+    @media (min-width: 1420px) {
+      .freaks .cs-title {
+        left: 8vw; } }
+  @media (min-width: 1010px) {
+    .freaks .intro-pics {
+      right: 6vw; } }
+  @media (min-width: 1420px) {
+    .freaks .intro-pics {
+      right: 8vw; } }
+  @media (min-width: 1010px) {
+    .freaks .intro-pics img {
+      max-width: 45vw; } }

@@ -136,6 +136,18 @@
 	}
 }
 
+.cs-vid {
+	width: 100%;
+	margin-top: 15rem;
+	@include sm-tablet {
+		margin-top: 30rem;
+	}
+	
+	video {
+		width: 100%;
+	}
+}
+
 .more-projects {
 	@include clearfix;
 	margin-top: 15rem;

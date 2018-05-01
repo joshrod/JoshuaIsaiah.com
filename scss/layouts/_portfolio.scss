@@ -10,6 +10,7 @@
 	}
 
 	.card {
+		opacity: 0;
 		&:nth-of-type(n+2) {
 			margin-top: 8rem;
 		}
@@ -24,6 +25,10 @@
 				float: left;
 			}
 		}
+	}
+
+	.card-fade {
+		opacity: 1;
 	}
 
 }

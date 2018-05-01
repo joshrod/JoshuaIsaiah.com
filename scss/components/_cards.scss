@@ -35,6 +35,12 @@
 				font-size: 2rem;
 				font-weight: 600;
 				letter-spacing: 0.2rem;
+				@include sm-tablet {
+					font-size: 2.2rem;
+				}
+				@include sm-desktop {
+					font-size: 2rem;
+				}
 			}
 
 			h3 {
@@ -44,18 +50,25 @@
 				font-weight: 400;
 				text-transform: uppercase;
 				letter-spacing: 0.2rem;
+				@include sm-tablet {
+					font-size: 1.2rem;
+				}
+				@include sm-desktop {
+					font-size: 1rem;
+				}
 			}
 
 			p {
 				@transitionFX(.6s);
-				color: $red;
-				display: none;
+				margin-top: 1rem;
+				color: $gray;
 				font-size: 1.2rem;
 				letter-spacing: 0.2rem;
 				@include sm-desktop {
 					display: block;
 					visibility: hidden;
 					opacity: 0;
+					color: $red;
 					margin-top: 9rem;
 					margin-bottom: 1rem;
 				}

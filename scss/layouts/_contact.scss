@@ -9,10 +9,18 @@
 	}
 
 	h1 {
+		@include transitionFX(0.3s);
 		font-size: 3.6rem;
+		opacity: 0;
+		transform: translateY(10px);
 		@include sm-desktop {
 			font-size: 4.8rem;
 		}
+	}
+
+	.contact-slide {
+		opacity: 1;
+		transform: translateY(-10px);
 	}
 
 	p {

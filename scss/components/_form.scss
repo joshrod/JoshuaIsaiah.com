@@ -1,52 +1,61 @@
 form {
 	
 	.input-line {
-			@include transitionFX(.2s);
-			width: 100%;
-			height: 3.5rem;
-			border: 0;
-			outline: 0;
-			background: transparent;
-			font-size: 1.6rem;
-			border-bottom: 1px solid black;
-			&:nth-of-type(2) {
-				margin: 3rem 0;
-			}
-			@include sm-desktop {
-				display: inline-block;
-
-				&:nth-of-type(1) {
-					width: 45%;
-				}
-				&:nth-of-type(2) {
-					width: 45%;
-					margin: 0;
-					float: right;
-				}
-				&:nth-of-type(3) {
-					margin-top: 4rem;
-				}
-			}
+		@include transitionFX(0.2s);
+		width: 100%;
+		height: 3.5rem;
+		border: 0;
+		outline: 0;
+		background: transparent;
+		font-size: 1.6rem;
+		border-bottom: 1px solid black;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		&:nth-of-type(2) {
+			margin: 3rem 0;
 		}
+		@include sm-desktop {
+			display: inline-block;
 
-		.submit-btn {
-			@include transitionFX(.2s);
-			width: 100%;
-			height: 4rem;
-			margin-top: 5rem;
-			border: 1px solid black;
-			border-radius: 0;
-			background: transparent;
-			font-size: 1.4rem;
-			font-family: $nunito;
-			cursor: pointer;
-			&:hover {
-				background: black;
-				color: white;
+			&:nth-of-type(1) {
+				width: 45%;
 			}
-			@include sm-desktop {
-				width: 25rem;
-				margin-top: 7rem;
+			&:nth-of-type(2) {
+				width: 45%;
+				margin: 0;
+				float: right;
+			}
+			&:nth-of-type(3) {
+				margin-top: 4rem;
 			}
 		}
 	}
+
+	.draw-out {
+		@include transitionFX(0.5s);
+		transform: scaleX(1);
+	}
+
+
+	
+	.submit-btn {
+		@include transitionFX(.2s);
+		width: 100%;
+		height: 4rem;
+		margin-top: 5rem;
+		border: 1px solid black;
+		border-radius: 0;
+		background: transparent;
+		font-size: 1.4rem;
+		font-family: $nunito;
+		cursor: pointer;
+		&:hover {
+			background: black;
+			color: white;
+		}
+		@include sm-desktop {
+			width: 25rem;
+			margin-top: 7rem;
+		}
+	}
+}

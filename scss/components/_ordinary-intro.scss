@@ -1,0 +1,27 @@
+.freaks {
+	background: $of-blue;
+
+	.cs-title {
+		color: white;
+		@include md-desktop {
+			left: 6vw;
+		}
+		@include lg-desktop {
+			left: 8vw;
+		}
+	}
+
+	.intro-pics {
+		@include sm-desktop {
+			right: 6vw;
+		}
+		@include lg-desktop {
+			right: 8vw;
+		}
+		img {
+			@include sm-desktop {
+				max-width: 45vw;
+			}
+		}
+	}
+}

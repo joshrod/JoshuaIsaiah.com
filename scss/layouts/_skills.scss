@@ -6,10 +6,18 @@
 	}
 
 	h1 {
+		@include transitionFX(0.3s);
 		font-size: 3.6rem;
+		opacity: 0;
+		transform: translateY(10px);
 		@include sm-desktop {
 			font-size: 4.8rem;
 		}
+	}
+
+	.skills-slide {
+		opacity: 1;
+		transform: translateY(-10px);
 	}
 
 	.skills-container {
@@ -23,7 +31,10 @@
 		}
 
 		.skills-list {
+			@include transitionFX(0.3s);
 			margin-top: 5rem;
+			opacity: 0;
+			transform: translateX(-10px);
 
 			h3 {
 				font-size: 1.8rem;
@@ -33,6 +44,11 @@
 			ul {
 				margin-top: 1.5rem;
 			}
+		}
+
+		.slide-from-left {
+			opacity: 1;
+			transform: translateX(10px);
 		}
 	}
 }
